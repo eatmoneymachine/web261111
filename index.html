@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>내 영화 보드</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="top">
+        <h1>내 영화 보드</h1>
+        <nav>
+            <ul>
+                <li><a href="#board">보드</a></li>
+                <li><a href="#about">소개</a></li>
+                <li><a href="detail.html">상세</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>내가 고른 영화 다섯 편</h2>
+        <p>포스터 위에 마우스를 올려 보세요.</p>
+    </section>
+
+    <main>
+        <section class="board" id="board">
+            <article class="card">
+                <img class="poster" src="https://image.tmdb.org/t/p/w342/z53D72EAOxGRqdr7KXXWp9dJiDe.jpg" alt="미션 임파서블: 파이널 레코닝 영화 포스터">
+                <span class="badge">7.1</span>
+                <div class="info">
+                    <h2>미션 임파서블: 파이널 레코닝</h2>
+                    <p class="year">2025</p>
+                    <p class="overview">에단 헌트와 팀은 전 세계의 정보망에 침투한 인공지능 엔티티를 막기 위해 시간과의 싸움을 벌인다.</p>
+                </div>
+            </article>
+            <article class="card">
+                <img class="poster" src="https://image.tmdb.org/t/p/w342/9JCQtDCSpPR2ld55yNlEg1VwcQo.jpg" alt="스파이더맨: 브랜드 뉴 데이 영화 포스터">
+                <span class="badge">7.9</span>
+                <div class="info">
+                    <h2>스파이더맨: 브랜드 뉴 데이</h2>
+                    <p class="year">2026</p>
+                    <p class="overview">피터 파커가 뉴욕을 지키던 중, 일련의 수상한 범죄가 예상보다 큰 미스터리로 이어진다.</p>
+                </div>
+            </article>
+            <article class="card">
+                <img class="poster" src="https://image.tmdb.org/t/p/w342/or06FN3Dka5tukK1e9sl16pB3iy.jpg" alt="어벤져스: 엔드게임 영화 포스터">
+                <span class="badge">8.3</span>
+                <div class="info">
+                    <h2>어벤져스: 엔드게임</h2>
+                    <p class="year">2019</p>
+                    <p class="overview">타노스의 손에 우주 생명체 절반이 사라진 뒤, 살아남은 어벤져스가 모든 것을 되돌릴 마지막 방법을 찾는다.</p>
+                </div>
+            </article>
+            <article class="card">
+                <img class="poster" src="https://image.tmdb.org/t/p/w342/5rhTDKUhPYvpdQIijFIs5VoWsON.jpg" alt="오디세이 영화 포스터">
+                <span class="badge">6.5</span>
+                <div class="info">
+                    <h2>오디세이</h2>
+                    <p class="year">2026</p>
+                    <p class="overview">트로이 전쟁이 끝난 뒤, 오디세우스가 고향으로 돌아가기 위해 신과 괴물, 수많은 시련을 마주한다.</p>
+                </div>
+            </article>
+            <article class="card">
+                <img class="poster" src="https://images.contentstack.io/v3/assets/blt13adb7e2033fcee5/bltc1902be5a724814d/69f2494ff44fdff368fd7f76/SuperMarioGalaxyMovie_keyart_Poster.jpg?width=2560" alt="슈퍼 마리오 갤럭시 영화 포스터">
+                <span class="badge">8.1</span>
+                <div class="info">
+                    <h2>슈퍼 마리오 갤럭시</h2>
+                    <p class="year">2026</p>
+                    <p class="overview">마리오와 루이지가 요시와 새로운 친구들을 만나 버섯 왕국을 넘어 은하계의 모험에 나선다.</p>
+                </div>
+            </article>
+        </section>
+
+        <section id="about">
+            <h2>이 보드에 대하여</h2>
+            <p>만든 사람: 김동건 영화는 액션, 슈퍼히어로, 신화 서사, 애니메이션 등 다양한 장르를 기준으로 골랐습니다.</p>
+            <p>포스터와 영화 정보는 TMDB 및 각 영화의 공식 자료를 참고했습니다. 일부 작품은 평점이 집계 중입니다.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>이 사이트는 TMDB API를 사용하지만 TMDB의 보증이나 인증을 받지 않았습니다.
+            This product uses the TMDB API but is not endorsed or certified by TMDB.</p>
+        <p>포스터와 영화 정보: TMDB (https://www.themoviedb.org)</p>
+    </footer>
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
