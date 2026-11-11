@@ -1,4 +1,3 @@
-
 const movies = [
     {
         title: "미션 임파서블: 파이널 레코닝",
@@ -34,5 +33,12 @@ const movies = [
         date: "2026-04-29",
         rating: 8.1,
         poster: "https://images.contentstack.io/v3/assets/blt13adb7e2033fcee5/bltc1902be5a724814d/69f2494ff44fdff368fd7f76/SuperMarioGalaxyMovie_keyart_Poster.jpg?width=2560"
+    },
+    {
+        title: "인사이드 아웃 2",
+        year: 2024,
+        date: "2024-06-12",
+        rating: 7.6,
+        poster: "/vpnVM9B6NMmQpWeZvzLvDESb2QY.jpg"
     }
 ];

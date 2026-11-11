@@ -1,38 +1,4 @@
-
-function average(list) {
-    let sum = 0;
-
-    for (const m of list) {
-        sum += m.rating;
-    }
-
-    return sum / list.length;
-}
-
-function best(list) {
-    let top = list[0];
-
-    for (const m of list) {
-        if (m.rating > top.rating) {
-            top = m;
-        }
-    }
-
-    return top;
-}
-
-function filterByRating(list, min) {
-    return list.filter(m => m.rating >= min);
-}
-
-function sortByRating(list) {
-    return [...list].sort((a, b) => b.rating - a.rating);
-}
-
-function yearsSince(dateStr) {
-    return new Date().getFullYear() - new Date(dateStr).getFullYear();
-}
-
+// posterUrl : 포스터 경로를 TMDB 이미지 주소로 변환
 function posterUrl(path, size) {
     if (path.startsWith("http")) {
         return path;
@@ -41,33 +7,58 @@ function posterUrl(path, size) {
     return "https://image.tmdb.org/t/p/" + size + path;
 }
 
+// renderCards : 영화 배열을 읽어 보드에 카드 생성
+function renderCards(list) {
+    const board = document.querySelector(".board");
 
-console.log("평균:", average(movies).toFixed(2));
-console.log("최고:", best(movies).title);
-console.log("8점 이상:", filterByRating(movies, 8).length + "편");
+    board.innerHTML = "";
 
-const sorted = sortByRating(movies);
+    for (const m of list) {
+        const card = document.createElement("article");
+        card.className = "card";
 
-console.log(
-    "정렬 1위:",
-    sorted[0].title,
-    "/ 원본 1번:",
-    movies[0].title
-);
+        if (m.rating >= 8) {
+            card.classList.add("hot");
+        }
 
-console.log(yearsSince(movies[0].date) + "년 전 개봉");
-console.log(posterUrl(movies[0].poster, "w342"));
+        card.innerHTML = `
+            <img class="poster" src="${posterUrl(m.poster, "w342")}" alt="${m.title} 포스터">
+            <span class="badge">${m.rating}</span>
+            <div class="info">
+                <h2>${m.title}</h2>
+                <p class="year">${m.year}</p>
+            </div>`;
 
+        board.appendChild(card);
+    }
+
+    document.getElementById("count").textContent = list.length + "편";
+}
+
+// sortBy : 지정한 키를 기준으로 정렬한 새 배열 반환
+function sortBy(list, key, desc) {
+    const copy = [...list];
+
+    copy.sort((a, b) => {
+        if (typeof a[key] === "string") {
+            return a[key].localeCompare(b[key]);
+        }
+
+        return a[key] - b[key];
+    });
+
+    if (desc) {
+        copy.reverse();
+    }
+
+    return copy;
+}
+
+// applySort : 선택 상자의 값에 따라 카드를 다시 그림
+function applySort() {
+    const key = document.getElementById("sort").value;
+    renderCards(sortBy(movies, key, key !== "title"));
+}
 
 document.title = "내 영화 " + movies.length + "편";
-
-
-console.table(
-    sortByRating(movies).map(movie => ({
-        title: movie.title,
-        year: movie.year,
-        date: movie.date,
-        rating: movie.rating,
-        poster: movie.poster
-    }))
-);
+applySort();
